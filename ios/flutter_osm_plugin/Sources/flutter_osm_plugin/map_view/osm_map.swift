@@ -661,9 +661,6 @@ class MapCoreOSMView : NSObject, FlutterPlatformView, CLLocationManagerDelegate,
         let geoMap = userLocation.toUserLocation(heading: heading)
         latestUserLocation = userLocation
         channel.invokeMethod("receiveUserLocation", arguments: geoMap)
-        if ((!isMovedToLocation || !canSkipFollow) && !userLocationWithoutControl && mapInitialized) {
-            self.mapOSM.locationManager.moveToUserLocation(animated: true)
-        }
         
         if let result = resultFlutter {
             result(geoMap)
