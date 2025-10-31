@@ -97,11 +97,7 @@ class CustomLocationManager(private val mapView: MapView) : Overlay(), IMyLocati
     private fun setLocation(location: Location) {
         currentLocation = location
         mGeoPoint = location.toGeoPoint()
-        if (mIsFollowing) {
-            mapView.controller.animateTo(mGeoPoint)
-        } else {
-            mapView.postInvalidate()
-        }
+        mapView.postInvalidate()
     }
 
     fun enableMyLocation() {

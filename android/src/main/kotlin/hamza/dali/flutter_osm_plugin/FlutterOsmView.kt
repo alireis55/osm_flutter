@@ -963,17 +963,6 @@ class FlutterOsmView(
             mapView!!.overlays.add(locationNewOverlay)
         }
         locationNewOverlay.enableMyLocation()
-        locationNewOverlay.runOnFirstFix {
-            scope!!.launch(Main) {
-                val currentPosition = locationNewOverlay.mGeoPoint
-
-                mapView?.controller?.stopAnimation(true)
-                mapView?.controller?.setCenter(currentPosition)
-                //mapView?.controller.animateTo(currentPosition)
-            }
-
-        }
-
 
     }
 
